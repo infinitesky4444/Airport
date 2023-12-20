@@ -1,0 +1,19 @@
+export const aircrafts = {
+    "AT4": "ATR 42",
+    "7M8": "BOEING 737 MAX 8",
+    "7M9": "BOEING 737 MAX 9",
+    "E7W": "EMBRAER 175 (ENHANCED WINGLETS)",
+    "73G": "BOEING 737-700",
+    "73H": "BOEING 737-800 (WINGLETS)",
+    "32N": "AIRBUS A320NEO",
+    "320": "AIRBUS A320",
+    "321": "AIRBUS A321",
+    "772": "BOEING 777-200/200ER",
+    "223": "AIRBUS  A220-300",
+    "333": "AIRBUS A330-300",
+    "32S": "AIRBUS INDUSTRIE A318/A319/A320/A321",
+    "77W": "BOEING 777-300ER",
+    "789": "BOEING 787-9",
+    "738": "BOEING 737-800",
+    "739": "BOEING 737-900"
+}

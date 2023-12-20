@@ -1,13 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { submitFlightData } from '../actions/flightActions';
 import { getAirports } from '../utils/rapidapi';
-import axios from 'axios';
+import FlightResults from './FlightResults';
 
 const Flight = () => {
     const [from, setFrom] = useState('');
     const [to, setTo] = useState('');
     const [suggestion, setSuggestion] = useState([]);
-    const [searchResults, setSearchResults] = useState([]);
     const [showSuggestions, setShowSuggestions] = useState(false);
+
+    const searchResults = useSelector((state) => state.flight.searchResults);
+    const dispatch = useDispatch();
     const suggestionBoxRef = useRef(null);
 
     useEffect(() => {
@@ -51,16 +55,11 @@ const Flight = () => {
     }
 
     const handleSearch = () => {
-        axios.post('http://localhost:2800/date', {
+        dispatch(submitFlightData({
             departure: '2024-01-01',
             locationDeparture: from,
             locationArrival: to
-        }).then((response) => {
-            console.log(response.data.data);
-            setSearchResults(response.data.data);
-        }).catch((error) => {
-            console.log(error)
-        })
+        }))
     }
 
     return (
@@ -120,11 +119,7 @@ const Flight = () => {
                 </button>
             </div>
             <div>
-                {searchResults.map((data, index) => {
-                    return (
-                        <div>{data.id}</div>
-                    )
-                })}
+                <FlightResults />
             </div>
         </>
     );
