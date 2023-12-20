@@ -27,24 +27,24 @@ const FlightResults = () => {
     return (
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 mx-4 lg:mx-72">
             <div>
-                {searchResults.length > 0 
+                {searchResults.length > 0
                     ?
                     Object.entries(groups).map(([carrierCode, segments]) => {
-                    const carrier = carriers.find((carrier) => carrier[carrierCode]);
-                    console.log(carrier);
-                    return (
-                        <div key={carrierCode} className="flex items-center my-2">
-                            <img src={carrier.logo} className="logo-md rounded-md" />
-                            <div className="ml-3">
-                                <strong>{carrier[carrierCode]}</strong>
-                                <p className="text-sm text-slate-400">{segments.length} flights available</p>
+                        const carrier = carriers.find((carrier) => carrier[carrierCode]);
+                        console.log(carrier);
+                        return (
+                            <div key={carrierCode} className="flex items-center my-2">
+                                <img src={carrier.logo} className="logo-md rounded-md" />
+                                <div className="ml-3">
+                                    <strong>{carrier[carrierCode]}</strong>
+                                    <p className="text-sm text-slate-400">{segments.length} flights available</p>
+                                </div>
                             </div>
-                        </div>
-                    )
-                })
-                :
-                <div className="text-lg">There is no available flight</div>
-            }
+                        )
+                    })
+                    :
+                    <div className="text-lg">There is no available flight</div>
+                }
             </div>
             <div>
 
